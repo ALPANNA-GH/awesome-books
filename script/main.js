@@ -1,27 +1,48 @@
-const bookList = document.querySelector('#book-list');
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
-const addBook = document.querySelector('#addBook');
+const bookList = document.querySelector("#bookList");
+const bookTitle = document.querySelector("#bookTitle");
+const bookAuthor = document.querySelector("#authorName");
+const addBook = document.querySelector("#addBook");
 
 const bookCollection = [];
 
 function displayBook() {
-  bookList.innerHTML = '';
+  bookList.innerHTML = "";
   bookCollection.forEach((book) => {
-    const p = document.createElement('p');
-    p.textContent = `${book.title} by ${book.author}`;
-    bookList.appendChild(li);
+    const p1 = document.createElement("p");
+    p1.textContent = `${book.title}`;
+    const p2 = document.createElement("p");
+    p2.textContent = `${book.author}`;
+    const removeButton =  document.createElement('button');
+    removeButton.textContent = "Remove";
+    // removeButton.attributes('id') = "removeBtn" + 
+    removeButton.classList.add('deleteBtn');
+    const hr = document.createElement('hr');
+    bookList.append(p1, p2, removeButton, hr);
   });
 }
 
-function addBookToCollection(bookTitle, bookAuthor) {
+function addBookToCollection(e) {
+  e.preventDefault();
   const book = {
     title: bookTitle.value,
     author: bookAuthor.value,
   };
   bookCollection.push(book);
+  displayBook();
 }
 
-addBook.addEventListener('click', addBookToCollection);
+function removeBook (){
+  bookList.innerHTML += 'pppppppppppppppppppppp';
+}
 
-console.log(bookCollection)
+const removeBtn = document.querySelectorAll(".deleteBtn");
+console.log(removeBtn.className);
+removeBtn.forEach((elem) => {
+  elem.addEventListener("click", removeBook);
+  console.log(elem.classList.className);
+});
+
+// removeBtn.addEventListener("click", removeBook);
+// console.log(removeBtn);
+addBook.addEventListener("click", addBookToCollection);
+console.log(removeBtn.className);
