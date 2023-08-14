@@ -2,8 +2,8 @@ const bookList = document.querySelector("#bookList");
 const bookTitle = document.querySelector("#bookTitle");
 const bookAuthor = document.querySelector("#authorName");
 const addBook = document.querySelector("#addBook");
-
 const bookCollection = [];
+// let bookIndex = bookCollection.length;
 
 function displayBook() {
   bookList.innerHTML = "";
@@ -12,12 +12,19 @@ function displayBook() {
     p1.textContent = `${book.title}`;
     const p2 = document.createElement("p");
     p2.textContent = `${book.author}`;
+    let indexOfBook = document.createElement('input');
+    indexOfBook.id = `bookindex${bookCollection.length}`;
+    // indexOfBook.setAttribute('type', 'hidden');
+    indexOfBook = document.querySelector('#bookindex' + bookCollection.length);
+    indexOfBook.value(bookCollection.length);
+    // indexOfBook.value = `${bookCollection.length}`;
     const removeButton =  document.createElement('button');
     removeButton.textContent = "Remove";
     // removeButton.attributes('id') = "removeBtn" + 
     removeButton.classList.add('deleteBtn');
     const hr = document.createElement('hr');
-    bookList.append(p1, p2, removeButton, hr);
+    bookList.append(p1, p2, indexOfBook, removeButton, hr);
+    assignEventListenerToRemoveBtn();
   });
 }
 
@@ -27,22 +34,23 @@ function addBookToCollection(e) {
     title: bookTitle.value,
     author: bookAuthor.value,
   };
+  // bookCollection[bookIndex] = book;
   bookCollection.push(book);
   displayBook();
+  // bookIndex++;
 }
 
 function removeBook (){
-  bookList.innerHTML += 'pppppppppppppppppppppp';
+  alert( 'pppppppppppppppppppppp');
 }
 
+function assignEventListenerToRemoveBtn () {
 const removeBtn = document.querySelectorAll(".deleteBtn");
-console.log(removeBtn.className);
-removeBtn.forEach((elem) => {
-  elem.addEventListener("click", removeBook);
-  console.log(elem.classList.className);
-});
+  removeBtn.forEach((elem) => {
+    elem.addEventListener("click", removeBook);
+  });
+}
 
 // removeBtn.addEventListener("click", removeBook);
 // console.log(removeBtn);
 addBook.addEventListener("click", addBookToCollection);
-console.log(removeBtn.className);
