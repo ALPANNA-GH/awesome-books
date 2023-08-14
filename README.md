@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="/assets/imgs/bookstore-logo.png" alt="logo"  height="500px" />
+  <img src="/assets/imgs/bookstore-logo.png" alt="logo"  height="300px" />
   <br/>
     <h1 style="font-size: 72px; font-weight: 900;"><b> Awesome Books </b></h1>
     <h2>Book List Editor</h2>
@@ -35,7 +35,7 @@
 
 **Awesome Books** a website project for editing book lists 
 - Add books
-- browse book list
+- Browse through book list
 - Remove books from the list
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -109,7 +109,7 @@
 
 > Next line the link to the live Awesome books website.
 
-- [ Click Here for GHRMA Live Demo ](https://alpanna-gh.github.io/awesome-books/)
+- [ Click Here for 'Awesome Books' Live Demo ](https://alpanna-gh.github.io/awesome-books/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,7 +126,7 @@ NO Prerequisites needed for this project
 
 Clone this repository open it with GH desktop, or download it
 `Code -> HTTPS -> copy link | download zip | open on GH disktop app`
-[GHRMA files URL link](https://github.com/ALPANNA-GH/awesome-books.git)
+['Awesome Books' files URL link](https://github.com/ALPANNA-GH/awesome-books.git)
 
 ### Install
 
@@ -153,11 +153,10 @@ No deployment required
 
 > Collaborators of this project.
 
-**Authors**
-
 👤 Ahmed Alpanna
-- GitHub: [@ALPANNA-GH](https://github.com/ALPANNA-GH)
+- GitHub: [ALPANNA-GH](https://github.com/ALPANNA-GH)
 - Gmail: [alpanna@gmail.com](mailto:alpanna@gmail.com)
+
 
 👤 IsaMarvin
 - GitHub: [IsaMarvin](https://github.com/IsaMarvin)
@@ -210,7 +209,9 @@ If you like this project your comments, messeges, and support are welcome.
 
 Thank you,
 > to all code reviewers who guid us through this project.
+
 > to all cool people who master techs and still answeres tech questions.
+
 > to everyone who support us, inspired us, and teach us.
 
 
