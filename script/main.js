@@ -24,6 +24,20 @@ function displayBook() {
   assignEventListenerToRemoveBtn();
 }
 
+function addBookToCollection(e) {
+  e.preventDefault();
+  const bookMaxId = Number.isFinite(Math.max(...bookCollection.map((book) => book.id)))
+    ? Math.max(...bookCollection.map((book) => book.id)) + 1 : 0;
+  const book = {
+    title: bookTitle.value,
+    author: bookAuthor.value,
+    id: bookMaxId,
+  };
+  bookCollection.push(book);
+  localStorage.setItem('booklist', JSON.stringify(bookCollection));
+  displayBook();
+}
+
 function removeBook() {
   const getId = this.previousSibling.textContent;
   const indexToRemove = bookCollection.findIndex((book) => book.id === Number(getId));
@@ -40,21 +54,6 @@ function assignEventListenerToRemoveBtn() {
   removeBtn.forEach((elem) => {
     elem.addEventListener('click', removeBook);
   });
-}
-
-function addBookToCollection(e) {
-  e.preventDefault();
-  const bookMaxId = Number.isFinite(Math.max(...bookCollection.map((book) => book.id)))
-    ? Math.max(...bookCollection.map((book) => book.id)) + 1
-    : 0;
-  const book = {
-    title: bookTitle.value,
-    author: bookAuthor.value,
-    id: bookMaxId,
-  };
-  bookCollection.push(book);
-  localStorage.setItem('booklist', JSON.stringify(bookCollection));
-  displayBook();
 }
 
 displayBook();
