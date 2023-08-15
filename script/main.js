@@ -14,6 +14,7 @@ function displayBook() {
     const indexOfBook = document.createElement('p');
     indexOfBook.id = `bookindex${book.id}`;
     indexOfBook.textContent = book.id;
+    indexOfBook.classList.add('hidden');
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('deleteBtn');
