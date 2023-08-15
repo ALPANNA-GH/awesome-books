@@ -2,8 +2,7 @@ const bookList = document.querySelector("#bookList");
 const bookTitle = document.querySelector("#bookTitle");
 const bookAuthor = document.querySelector("#authorName");
 const addBook = document.querySelector("#addBook");
-const bookCollection = [];
-// let bookIndex = bookCollection.length;
+let bookCollection = JSON.parse(localStorage.getItem("bookCollection")) ?? [];
 
 function displayBook() {
   bookList.innerHTML = "";
@@ -12,15 +11,12 @@ function displayBook() {
     p1.textContent = `${book.title}`;
     const p2 = document.createElement("p");
     p2.textContent = `${book.author}`;
-    let indexOfBook = document.createElement('input');
-    indexOfBook.id = `bookindex${bookCollection.length}`;
-    // indexOfBook.setAttribute('type', 'hidden');
-    indexOfBook = document.querySelector('#bookindex' + bookCollection.length);
-    indexOfBook.value(bookCollection.length);
-    // indexOfBook.value = `${bookCollection.length}`;
+    let indexOfBook = document.createElement('p');
+    indexOfBook.id = `bookindex${book.id}`;
+    // indexOfBook.css('obacity', 0);
+    indexOfBook.textContent = book.id;
     const removeButton =  document.createElement('button');
     removeButton.textContent = "Remove";
-    // removeButton.attributes('id') = "removeBtn" + 
     removeButton.classList.add('deleteBtn');
     const hr = document.createElement('hr');
     bookList.append(p1, p2, indexOfBook, removeButton, hr);
@@ -30,18 +26,23 @@ function displayBook() {
 
 function addBookToCollection(e) {
   e.preventDefault();
+  let bookMaxId = isFinite(Math.max(...bookCollection.map(book => book.id))) ? Math.max(...bookCollection.map(book => book.id)) + 1 : 0;
   const book = {
     title: bookTitle.value,
     author: bookAuthor.value,
+    id: bookMaxId,
   };
-  // bookCollection[bookIndex] = book;
   bookCollection.push(book);
+  localStorage.setItem('booklist', JSON.stringify(bookCollection));
   displayBook();
-  // bookIndex++;
 }
 
 function removeBook (){
-  alert( 'pppppppppppppppppppppp');
+  let getId = (this).previousSibling.textContent;
+  // alert(getId + ' ' + bookCollection.find(book => book.id === Number(getId)).title);
+  bookCollection.splice(bookCollection.find(book => book.id === Number(getId)).id, 1);
+  localStorage.setItem('booklist', JSON.stringify(bookCollection));
+  displayBook();
 }
 
 function assignEventListenerToRemoveBtn () {
@@ -51,6 +52,5 @@ const removeBtn = document.querySelectorAll(".deleteBtn");
   });
 }
 
-// removeBtn.addEventListener("click", removeBook);
-// console.log(removeBtn);
+displayBook();
 addBook.addEventListener("click", addBookToCollection);
