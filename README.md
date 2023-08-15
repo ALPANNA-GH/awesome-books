@@ -160,8 +160,9 @@ No deployment required
 
 👤 IsaMarvin
 - GitHub: [IsaMarvin](https://github.com/IsaMarvin)
-- LinkedIn: [IsaMarvin](https://www.linkedin.com/in/isamarvin/)
 
+👤 Mark Yegon
+- GitHub: [MarkYegon7](https://github.com/MarkYegon7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
