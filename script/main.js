@@ -9,7 +9,6 @@ class BookCollection {
   }
 
   setNewBook(){
-    // Event.preventDefault();
     const bookMaxId = Number.isFinite(Math.max(...this.bookArr.map((book) => book.id)))
       ? Math.max(...this.bookArr.map((book) => book.id)) + 1 : 0;
       this.bookArray({title: this.title, author: this.author, id: bookMaxId + 1});
