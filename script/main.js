@@ -21,7 +21,19 @@ function displayBook() {
     bookList.append(p1, p2, indexOfBook, removeButton, hr);
   });
 
-  assignEventListenerToRemoveBtn();
+  const removeBtn = document.querySelectorAll('.deleteBtn');
+  removeBtn.forEach((elem) => {
+    elem.addEventListener('click', function removeBook() {
+      const getId = this.previousSibling.textContent;
+      const indexToRemove = bookCollection.findIndex((book) => book.id === Number(getId));
+
+      if (indexToRemove !== -1) {
+        bookCollection.splice(indexToRemove, 1);
+        localStorage.setItem('booklist', JSON.stringify(bookCollection));
+        displayBook();
+      }
+    });
+  });
 }
 
 function addBookToCollection(e) {
@@ -36,24 +48,6 @@ function addBookToCollection(e) {
   bookCollection.push(book);
   localStorage.setItem('booklist', JSON.stringify(bookCollection));
   displayBook();
-}
-
-function removeBook() {
-  const getId = this.previousSibling.textContent;
-  const indexToRemove = bookCollection.findIndex((book) => book.id === Number(getId));
-
-  if (indexToRemove !== -1) {
-    bookCollection.splice(indexToRemove, 1);
-    localStorage.setItem('booklist', JSON.stringify(bookCollection));
-    displayBook();
-  }
-}
-
-function assignEventListenerToRemoveBtn() {
-  const removeBtn = document.querySelectorAll('.deleteBtn');
-  removeBtn.forEach((elem) => {
-    elem.addEventListener('click', removeBook);
-  });
 }
 
 displayBook();
