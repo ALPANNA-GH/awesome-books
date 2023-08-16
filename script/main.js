@@ -108,6 +108,30 @@ const list = document.getElementById('list');
 
 list.addEventListener('click', function() {
   formContainer.style.display = 'none';
+  bookList.style.display = 'block';
+  contactContainer.style.display = 'none';
   const heading = document.getElementById('mainTitle');
   heading.textContent = 'All Awesome Book Lists';
+})
+
+const addNew = document.getElementById('addNew');
+
+addNew.addEventListener('click', function() {
+  formContainer.style.display = 'block';
+  bookList.style.display = 'none';
+  contactContainer.style.display = 'none';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'Add New Book';
+})
+
+const contact = document.getElementById('contact');
+const contactContainer = document.getElementById('contactContainer');
+
+contact.addEventListener('click', function() {
+  formContainer.style.display = 'none';
+  bookList.style.display = 'none';
+  contactContainer.style.display = 'flex';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'Contact Information';
+  heading.style.margin = '4rem 0'
 })
