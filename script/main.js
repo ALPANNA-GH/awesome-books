@@ -30,9 +30,11 @@ const bookList = document.querySelector('#bookList');
 const addBook = document.querySelector('#addBook');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#authorName');
+const formContainer = document.getElementById('formContainer');
 
 function displayBook() {
   bookList.innerHTML = '';
+  // bookList.classList.remove('none');
   let newbook = new BookCollection();
   newbook.bookArr.forEach(book => {
     const bookCard = document.createElement('div');
@@ -54,6 +56,7 @@ function displayBook() {
     removeButton.textContent = 'Remove';
     removeButton.classList.add('deleteBtn');
     removeButton.addEventListener('click', function() {
+      // bookList.classList.remove('nonee');
       const indexToRemove = newbook.bookArr.findIndex(item => item.id === book.id);
       newbook.removeBookById(indexToRemove);
     });
@@ -100,3 +103,11 @@ bookAuthor.addEventListener('input', function() {
 });
 
 displayBook();
+
+const list = document.getElementById('list');
+
+list.addEventListener('click', function() {
+  formContainer.style.display = 'none';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'All Awesome Book Lists';
+})
