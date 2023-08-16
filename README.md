@@ -174,6 +174,7 @@ No deployment required
 - [ ] **Newsletter Email**
 - [ ] **Activity Subscribtion Online**
 - [ ] **Instant Message in Contact Us**
+- [ ] **Add SPA**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
