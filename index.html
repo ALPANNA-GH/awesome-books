@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Awesome Books</title>
-  <link rel="stylesheet" href="./style/main.css" />
-  <script src="./script/main.js" defer></script>
-</head>
-
-<body>
-  <header>
-    <h1>Awesome Books</h1>
-  </header>
-
-  <section id="bookList"></section>
-
-  <section>
-    <form id="bookForm">
-      <label for="bookTitle"> Title:
-        <input type="text" name="bookTitle" id="bookTitle" />
-      </label>
-      <label for="authorName"> Author:
-        <input type="text" name="authorName" id="authorName" />
-      </label>
-      <button id="addBook">Add</button>
-    </form>
-  </section>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Books</title>
+    <link rel="stylesheet" href="./style/main.css" />
+    <script src="./script/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Awesome Books</h1>
+    </header>
+    <section id="bookList"></section>
+    <section>
+      <form id="bookForm">
+        <label for="bookTitle">
+          Title:
+          <input type="text" name="bookTitle" id="bookTitle" required />
+        </label>
+        <label for="authorName">
+          Author:
+          <input type="text" name="authorName" id="authorName" required />
+        </label>
+        <button id="addBook" disabled>Add</button>
+      </form>
+    </section>
+  </body>
 </html>
