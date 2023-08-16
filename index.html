@@ -9,10 +9,20 @@
   </head>
   <body>
     <header>
-      <h1>Awesome Books</h1>
+      <div class="contain">
+        <nav>
+          <div class="logo"><a href="/">Awesome Books</a></div>
+          <ul>
+            <li id="list">List</li>
+            <li id="add-new">Add New</li>
+            <li id="contact">Contact</li>
+          </ul>
+        </nav>
+      </div>
+      <h1 id="mainTitle">Awesome Books</h1>
     </header>
-    <section id="bookList"></section>
-    <section>
+    <section id="bookList" class="none bookList"></section>
+    <section id="formContainer">
       <form id="bookForm">
         <label for="bookTitle">
           Title:
@@ -25,5 +35,10 @@
         <button id="addBook" disabled>Add</button>
       </form>
     </section>
+    <footer>
+      <div class="contain footer">
+        <p>Awesome Books &copy; 2023</p>
+      </div>
+    </footer>
   </body>
 </html>
