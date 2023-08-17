@@ -14,10 +14,7 @@ body {
 }
 
 header {
-  /* color: #fff; */
   text-align: center;
-
-  /* padding: 1rem 0; */
 }
 
 h1 {
@@ -138,6 +135,13 @@ nav {
   align-items: center;
 }
 
+.date-time {
+  width: 100%;
+  text-align: right;
+  padding: 10px;
+  font-size: 0.75rem;
+}
+
 #contactContainer {
   padding: 1rem;
   display: none;
@@ -146,6 +150,7 @@ nav {
   align-items: center;
   margin: auto;
   font-size: 1.2rem;
+  list-style:inside;
 }
 
 #question {
@@ -159,7 +164,7 @@ nav {
 
 #contactUs li {
   padding: 0;
-  list-style: disc;
+  /* list-style: disc; */
 }
 
 .footer {
