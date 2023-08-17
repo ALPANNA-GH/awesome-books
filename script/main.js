@@ -51,12 +51,10 @@ function displayBook() {
 
     const authorParagraph = document.createElement('p');
     authorParagraph.textContent = book.author;
-
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('deleteBtn');
     removeButton.addEventListener('click', function() {
-      // bookList.classList.remove('nonee');
       const indexToRemove = newbook.bookArr.findIndex(item => item.id === book.id);
       newbook.removeBookById(indexToRemove);
     });
@@ -66,6 +64,8 @@ function displayBook() {
     bookCard.appendChild(removeButton);
     bookList.appendChild(bookCard);
   });
+
+  bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
 }
 
 addBook.addEventListener('click', function(e) {
@@ -160,7 +160,7 @@ let fullYear = dateTime.getFullYear();
 let fullTimeWithSuffix = dateTime.getHours() + ':' 
   + dateTime.getMinutes() + ':' 
   + dateTime.getSeconds()
-  + (dateTime.getHours() > 12 ? ' <sub>pm</sub>' : ' <sub>am</sub>');
+  + (dateTime.getHours() > 11 ? ' pm' : ' am');
 let formatedDateTime = monthLong + ' ' + dayWithSuffix + ' ' + fullYear + ' ' + fullTimeWithSuffix;
 
 displayDateTime.innerHTML = formatedDateTime;
