@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome Books</title>
-    <link rel="stylesheet" href="./style/main.css" />
-    <script src="./script/main.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="contain">
-        <nav>
-          <div class="logo"><a href="/">Awesome Books</a></div>
-          <ul>
-            <li id="list">List</li>
-            <li id="addNew">Add New</li>
-            <li id="contact">Contact</li>
-          </ul>
-        </nav>
-      </div>
-      <p id="dateTime" class="date-time"></p>
-      <h1 id="mainTitle">Awesome Books</h1>
-    </header>
-    <section id="bookList" class="book-list"></section>
-    <section id="formContainer">
-      <form id="bookForm">
-        <label for="bookTitle">
-          Title:
-          <input type="text" name="bookTitle" id="bookTitle" required />
-        </label>
-        <label for="authorName">
-          Author:
-          <input type="text" name="authorName" id="authorName" required />
-        </label>
-        <button id="addBook" disabled>Add</button>
-      </form>
-    </section>
 
-    <section id="contactContainer">
-       <p id="question">Do you have any question or you wanted to say "hello"?<br>You can reach out to us!</p>
-       <ul id="contactUs">
-        <li>E-mail: mail@mail.com</li>
-        <li>Our phone number: 00086743</li>
-        <li>Our address: Street name 22, 5678 City, Country</li>
-       </ul>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awesome Books</title>
+  <link rel="stylesheet" href="./style/main.css" />
+  <script src="./script/main.js" defer></script>
+</head>
 
-    <footer>
-      <div class="contain footer">
-        <p>Awesome Books &copy; 2023</p>
-      </div>
-    </footer>
-  </body>
+<body>
+  <header>
+    <div class="contain">
+      <nav>
+        <div class="logo"><a href="/">Awesome Books</a></div>
+        <ul>
+          <li id="list">List</li>
+          <li id="addNew">Add New</li>
+          <li id="contact">Contact</li>
+        </ul>
+      </nav>
+    </div>
+    <p id="dateTime" class="date-time"></p>
+    <h1 id="mainTitle">Awesome Books</h1>
+  </header>
+  <section id="bookList" class="book-list"></section>
+  <section id="formContainer">
+    <form id="bookForm">
+      <label for="bookTitle">
+        Title:
+        <input type="text" name="bookTitle" id="bookTitle" required />
+      </label>
+      <label for="authorName">
+        Author:
+        <input type="text" name="authorName" id="authorName" required />
+      </label>
+      <button id="addBook" disabled>Add</button>
+    </form>
+  </section>
+
+  <section id="contactContainer">
+    <p id="question">Do you have any question or you wanted to say "hello"?<br>You can reach out to us!</p>
+    <ul id="contactUs">
+      <li>E-mail: mail@mail.com</li>
+      <li>Our phone number: 00086743</li>
+      <li>Our address: Street name 22, 5678 City, Country</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+      <p>Awesome Books 2023<sup>&copy;</sup></p>
+  </footer>
+</body>
 </html>
