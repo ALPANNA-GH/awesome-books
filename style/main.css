@@ -80,7 +80,6 @@ button:hover {
   padding: 1rem;
   border: 1px solid #555;
   margin: 2rem 1rem;
-  display: block;
 }
 
 .book-card {
@@ -151,7 +150,7 @@ nav {
   align-items: center;
   margin: auto;
   font-size: 1.2rem;
-  list-style:inside;
+  list-style: inside;
 }
 
 #question {
