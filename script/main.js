@@ -30,9 +30,11 @@ const bookList = document.querySelector('#bookList');
 const addBook = document.querySelector('#addBook');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#authorName');
+const formContainer = document.getElementById('formContainer');
 
 function displayBook() {
   bookList.innerHTML = '';
+  // bookList.classList.remove('none');
   let newbook = new BookCollection();
   newbook.bookArr.forEach(book => {
     const bookCard = document.createElement('div');
@@ -49,7 +51,6 @@ function displayBook() {
 
     const authorParagraph = document.createElement('p');
     authorParagraph.textContent = book.author;
-
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('deleteBtn');
@@ -63,6 +64,8 @@ function displayBook() {
     bookCard.appendChild(removeButton);
     bookList.appendChild(bookCard);
   });
+
+  bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
 }
 
 addBook.addEventListener('click', function(e) {
@@ -100,3 +103,68 @@ bookAuthor.addEventListener('input', function() {
 });
 
 displayBook();
+
+const list = document.getElementById('list');
+
+list.addEventListener('click', function() {
+  formContainer.style.display = 'none';
+  bookList.style.display = 'block';
+  contactContainer.style.display = 'none';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'All Awesome Book Lists';
+})
+
+const addNew = document.getElementById('addNew');
+
+addNew.addEventListener('click', function() {
+  formContainer.style.display = 'block';
+  bookList.style.display = 'none';
+  contactContainer.style.display = 'none';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'Add New Book';
+})
+
+const contact = document.getElementById('contact');
+const contactContainer = document.getElementById('contactContainer');
+
+contact.addEventListener('click', function() {
+  formContainer.style.display = 'none';
+  bookList.style.display = 'none';
+  contactContainer.style.display = 'flex';
+  const heading = document.getElementById('mainTitle');
+  heading.textContent = 'Contact Information';
+  heading.style.margin = '4rem 0'
+})
+
+function showLiveTime() {
+const displayDateTime = document.getElementById('dateTime');
+let dateTime = new Date();
+let monthLong = dateTime.toLocaleString('default', {month: 'long'});
+let dayWithSuffix = dateTime.getDay();
+switch (dayWithSuffix) {
+  case 1 : 
+    dayWithSuffix += '<sup>st</sup>';
+  break;
+  case 2 :
+    dayWithSuffix += '<sup>nd</sup>';
+  break;
+  case 3 : 
+    dayWithSuffix += '<sup>rd</sup>';
+  break;
+  default : 
+    dayWithSuffix += '<sup>th</sup>';
+  break;
+}
+
+let fullYear = dateTime.getFullYear();
+let fullTimeWithSuffix = dateTime.getHours() + ':' 
+  + dateTime.getMinutes() + ':' 
+  + dateTime.getSeconds()
+  + (dateTime.getHours() > 11 ? ' pm' : ' am');
+let formatedDateTime = monthLong + ' ' + dayWithSuffix + ' ' + fullYear + ' ' + fullTimeWithSuffix;
+
+displayDateTime.innerHTML = formatedDateTime;
+setTimeout(showLiveTime, 1000);
+}
+
+showLiveTime();
