@@ -111,6 +111,7 @@ li {
 
 li:hover {
   color: aqua;
+  cursor: pointer;
 }
 
 .logo {
