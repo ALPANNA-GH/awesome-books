@@ -140,7 +140,7 @@ function showLiveTime() {
 const displayDateTime = document.getElementById('dateTime');
 let dateTime = new Date();
 let monthLong = dateTime.toLocaleString('default', {month: 'long'});
-let dayWithSuffix = dateTime.getDay();
+let dayWithSuffix = dateTime.getDate();
 switch (dayWithSuffix) {
   case 1 : 
     dayWithSuffix += '<sup>st</sup>';
