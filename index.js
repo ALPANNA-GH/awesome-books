@@ -1,31 +1,3 @@
-// class BookCollection {
-//   constructor() {
-//     this.bookTitle = document.querySelector('#bookTitle');
-//     this.bookAuthor = document.querySelector('#authorName');
-//     this.bookArr = JSON.parse(localStorage.getItem('booklist')) || [];
-//   }
-
-//   setNewBook() {
-//     const bookMaxId = Math.max(...this.bookArr.map(book => book.id), 0);
-//     const newBook = {
-//       title: this.bookTitle.value,
-//       author: this.bookAuthor.value,
-//       id: bookMaxId + 1,
-//     };
-//     this.bookArr.push(newBook);
-//     localStorage.setItem('booklist', JSON.stringify(this.bookArr));
-//     displayBook();
-//   }
-
-//   removeBookById(id) {
-//     if (id !== -1) {
-//       this.bookArr.splice(id, 1);
-//       localStorage.setItem('booklist', JSON.stringify(this.bookArr));
-//       displayBook();
-//     }
-//   }
-// }
-
 
 const bookList = document.querySelector('#bookList');
 const addBook = document.querySelector('#addBook');
@@ -35,41 +7,50 @@ const formContainer = document.getElementById('formContainer');
 
 import {BookCollection} from "/modules/bookCollection.js";
 // import { displayBook } from "./modules/display.js";
-import { showLiveTime } from "./modules/dateTime.js";
+// import { showLiveTime } from "./modules/dateTime.js";
+import { DateTime } from "./modules/luxon.js";
 
-// function displayBook() {
-//   let newbook = new BookCollection();
-//   newbook.bookArr.forEach(book => {
-//     const bookCard = document.createElement('div');
-//     bookCard.classList.add('book-card');
+function showLiveTime() {
+  const displayDateTime = document.getElementById("dateTime");
+  let dt = DateTime.now();
+  let fullFormatedDateTime = dt.toFormat('MMMM dd ccc yyyy HH:mm:ssa');
+  displayDateTime.innerHTML = fullFormatedDateTime;
+  setTimeout(showLiveTime, 1000);
+}
 
-//     const titleParagraph = document.createElement('p');
-//     titleParagraph.textContent = book.title;
+function displayBook() {
+  let newbook = new BookCollection();
+  newbook.bookArr.forEach(book => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
 
-//     const bookBy = document.createElement('span');
-//     bookBy.textContent = 'by';
-//     bookBy.classList.add('book-by');
-//     titleParagraph.appendChild(bookBy);
+    const titleParagraph = document.createElement('p');
+    titleParagraph.textContent = book.title;
 
-//     const authorParagraph = document.createElement('p');
-//     authorParagraph.textContent = book.author;
+    const bookBy = document.createElement('span');
+    bookBy.textContent = 'by';
+    bookBy.classList.add('book-by');
+    titleParagraph.appendChild(bookBy);
 
-//     const removeButton = document.createElement('button');
-//     removeButton.textContent = 'Remove';
-//     removeButton.classList.add('deleteBtn');
-//     removeButton.addEventListener('click', function() {
-//       const indexToRemove = newbook.bookArr.findIndex(item => item.id === book.id);
-//       newbook.removeBookById(indexToRemove);
-//     });
+    const authorParagraph = document.createElement('p');
+    authorParagraph.textContent = book.author;
 
-//     bookCard.appendChild(titleParagraph);
-//     bookCard.appendChild(authorParagraph);
-//     bookCard.appendChild(removeButton);
-//     bookList.appendChild(bookCard);
-//   });
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.classList.add('deleteBtn');
+    removeButton.addEventListener('click', function() {
+      const indexToRemove = newbook.bookArr.findIndex(item => item.id === book.id);
+      newbook.removeBookById(indexToRemove);
+    });
 
-//   bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
-// }
+    bookCard.appendChild(titleParagraph);
+    bookCard.appendChild(authorParagraph);
+    bookCard.appendChild(removeButton);
+    bookList.appendChild(bookCard);
+  });
+
+  bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
+}
 
 addBook.addEventListener('click', function(e) {
   e.preventDefault();
@@ -105,8 +86,6 @@ bookAuthor.addEventListener('input', function() {
   }
 });
 
-// displayBook();
-
 const list = document.getElementById('list');
 
 list.addEventListener('click', function() {
@@ -139,35 +118,5 @@ contact.addEventListener('click', function() {
   heading.style.margin = '4rem 0'
 })
 
-// function showLiveTime() {
-// const displayDateTime = document.getElementById('dateTime');
-// let dateTime = new Date();
-// let monthLong = dateTime.toLocaleString('default', {month: 'long'});
-// let dayWithSuffix = dateTime.getDate();
-// switch (dayWithSuffix) {
-//   case 1 : 
-//     dayWithSuffix += '<sup>st</sup>';
-//   break;
-//   case 2 :
-//     dayWithSuffix += '<sup>nd</sup>';
-//   break;
-//   case 3 : 
-//     dayWithSuffix += '<sup>rd</sup>';
-//   break;
-//   default : 
-//     dayWithSuffix += '<sup>th</sup>';
-//   break;
-// }
-
-// let fullYear = dateTime.getFullYear();
-// let fullTimeWithSuffix = dateTime.getHours() + ':' 
-//   + dateTime.getMinutes() + ':' 
-//   + dateTime.getSeconds()
-//   + (dateTime.getHours() > 11 ? ' pm' : ' am');
-// let formatedDateTime = monthLong + ' ' + dayWithSuffix + ' ' + fullYear + ' ' + fullTimeWithSuffix;
-
-// displayDateTime.innerHTML = formatedDateTime;
-// setTimeout(showLiveTime, 1000);
-// }
-
+displayBook();
 showLiveTime();
