@@ -1,5 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-unused-vars */
 // these aren't really private, but nor are they really useful to document
-
 /**
  * @private
  */
