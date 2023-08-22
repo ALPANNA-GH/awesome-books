@@ -1,6 +1,8 @@
 
-// import {BookCollection} from "./modules/bookCollection.js";
+import {BookCollection} from "./modules/bookCollection.js";
 import {displayBook} from "./modules/display.js";
+import * as DT from "./modules/dateTime.js";
+
 displayBook();
 
 window.bookList = document.querySelector('#bookList');
@@ -9,10 +11,9 @@ const addNew = document.getElementById('addNew');
 const contact = document.getElementById('contact');
 const contactContainer = document.getElementById('contact-container');
 const formContainer = document.getElementById('form-container');
-// const addBook = document.querySelector('#addBook');
-// const bookTitle = document.querySelector('#bookTitle');
-// const bookAuthor = document.querySelector('#authorName');
-import * as DT from "./modules/dateTime.js";
+const addBook = document.querySelector('#addBook');
+const bookTitle = document.querySelector('#bookTitle');
+const bookAuthor = document.querySelector('#authorName');
 
 DT.showLiveTime();
 // window.displayB = function displayBook() {
@@ -50,39 +51,39 @@ DT.showLiveTime();
 //   bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
 // }
 
-// addBook.addEventListener('click', function(e) {
-//   e.preventDefault();
-//   let newbook = new BookCollection();
+addBook.addEventListener('click', function(e) {
+  e.preventDefault();
+  let newbook = new BookCollection();
 
-//   if (bookTitle.value.trim() !== '' && bookAuthor.value.trim() !== '') {
-//     newbook.setNewBook();
-//   }
+  if (bookTitle.value.trim() !== '' && bookAuthor.value.trim() !== '') {
+    newbook.setNewBook();
+  }
 
-//   bookTitle.value = '';
-//   bookAuthor.value = '';
+  bookTitle.value = '';
+  bookAuthor.value = '';
 
-//   if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
-//     addBook.disabled = true;
-//   } else {
-//     addBook.disabled = false;
-//   }
-// });
+  if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
+    addBook.disabled = true;
+  } else {
+    addBook.disabled = false;
+  }
+});
 
-// bookTitle.addEventListener('input', function() {
-//   if (this.value.trim() === '' || bookAuthor.value.trim() === '') {
-//     addBook.disabled = true;
-//   } else {
-//     addBook.disabled = false;
-//   }
-// });
+bookTitle.addEventListener('input', function() {
+  if (this.value.trim() === '' || bookAuthor.value.trim() === '') {
+    addBook.disabled = true;
+  } else {
+    addBook.disabled = false;
+  }
+});
 
-// bookAuthor.addEventListener('input', function() {
-//   if (this.value.trim() === '' || bookTitle.value.trim() === '') {
-//     addBook.disabled = true;
-//   } else {
-//     addBook.disabled = false;
-//   }
-// });
+bookAuthor.addEventListener('input', function() {
+  if (this.value.trim() === '' || bookTitle.value.trim() === '') {
+    addBook.disabled = true;
+  } else {
+    addBook.disabled = false;
+  }
+});
 
 
 list.addEventListener('click', function() {
@@ -111,4 +112,3 @@ contact.addEventListener('click', function() {
   heading.style.margin = '4rem 0'
 })
 
-// displayBook();
