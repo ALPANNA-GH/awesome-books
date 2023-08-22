@@ -1,3 +1,5 @@
+import { displayBook } from "./display";
+
 export class BookCollection {
   constructor() {
     this.bookTitle = document.querySelector("#bookTitle");
