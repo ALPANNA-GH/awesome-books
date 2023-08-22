@@ -31,7 +31,7 @@ addBook.addEventListener('click', function(e) {
   }
 });
 
-bookTitle.addEventListener('input', () => {
+bookTitle.addEventListener('input', function() {
   if (this.value.trim() === '' || bookAuthor.value.trim() === '') {
     addBook.disabled = true;
   } else {
@@ -39,7 +39,7 @@ bookTitle.addEventListener('input', () => {
   }
 });
 
-bookAuthor.addEventListener('input', () => {
+bookAuthor.addEventListener('input', function() {
   if (this.value.trim() === '' || bookTitle.value.trim() === '') {
     addBook.disabled = true;
   } else {
