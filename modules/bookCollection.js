@@ -1,4 +1,4 @@
-import { displayBook } from "./display";
+import { displayBook } from "./display.js";
 
 export class BookCollection {
   constructor() {

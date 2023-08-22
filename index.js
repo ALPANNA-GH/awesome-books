@@ -1,25 +1,20 @@
 
+// import {BookCollection} from "./modules/bookCollection.js";
+import {displayBook} from "./modules/display.js";
+displayBook();
+
 window.bookList = document.querySelector('#bookList');
-const addBook = document.querySelector('#addBook');
-const bookTitle = document.querySelector('#bookTitle');
-const bookAuthor = document.querySelector('#authorName');
+const list = document.getElementById('list');
+const addNew = document.getElementById('addNew');
+const contact = document.getElementById('contact');
+const contactContainer = document.getElementById('contact-container');
 const formContainer = document.getElementById('form-container');
-// const displayDateTime = document.getElementById("dateTime");
+// const addBook = document.querySelector('#addBook');
+// const bookTitle = document.querySelector('#bookTitle');
+// const bookAuthor = document.querySelector('#authorName');
+import * as DT from "./modules/dateTime.js";
 
-// import * as DateTime from 'luxon';
-
-// alert(DateTime.DateTime.now());
-
-import { BookCollection } from "./modules/bookCollection.js";
-import { displayBook } from "./modules/display.js";
-
-// function showLiveTime() {
-//   let dt = DateTime.DateTime.now();
-//   let fullFormatedDateTime = dt.toFormat('MMMM Do yyyy HH:mm:ssa');
-//   displayDateTime.innerHTML = fullFormatedDateTime;
-//   setTimeout(showLiveTime, 1000);
-// }
-
+DT.showLiveTime();
 // window.displayB = function displayBook() {
 //   bookList.innerHTML = '';
 //   let newbook = new BookCollection();
@@ -55,41 +50,40 @@ import { displayBook } from "./modules/display.js";
 //   bookList.innerHTML == ''? bookList.classList.add('hide-book-list') : bookList.classList.remove('hide-book-list');  
 // }
 
-addBook.addEventListener('click', function(e) {
-  e.preventDefault();
-  let newbook = new BookCollection();
+// addBook.addEventListener('click', function(e) {
+//   e.preventDefault();
+//   let newbook = new BookCollection();
 
-  if (bookTitle.value.trim() !== '' && bookAuthor.value.trim() !== '') {
-    newbook.setNewBook();
-  }
+//   if (bookTitle.value.trim() !== '' && bookAuthor.value.trim() !== '') {
+//     newbook.setNewBook();
+//   }
 
-  bookTitle.value = '';
-  bookAuthor.value = '';
+//   bookTitle.value = '';
+//   bookAuthor.value = '';
 
-  if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
-    addBook.disabled = true;
-  } else {
-    addBook.disabled = false;
-  }
-});
+//   if (bookTitle.value.trim() === '' || bookAuthor.value.trim() === '') {
+//     addBook.disabled = true;
+//   } else {
+//     addBook.disabled = false;
+//   }
+// });
 
-bookTitle.addEventListener('input', function() {
-  if (this.value.trim() === '' || bookAuthor.value.trim() === '') {
-    addBook.disabled = true;
-  } else {
-    addBook.disabled = false;
-  }
-});
+// bookTitle.addEventListener('input', function() {
+//   if (this.value.trim() === '' || bookAuthor.value.trim() === '') {
+//     addBook.disabled = true;
+//   } else {
+//     addBook.disabled = false;
+//   }
+// });
 
-bookAuthor.addEventListener('input', function() {
-  if (this.value.trim() === '' || bookTitle.value.trim() === '') {
-    addBook.disabled = true;
-  } else {
-    addBook.disabled = false;
-  }
-});
+// bookAuthor.addEventListener('input', function() {
+//   if (this.value.trim() === '' || bookTitle.value.trim() === '') {
+//     addBook.disabled = true;
+//   } else {
+//     addBook.disabled = false;
+//   }
+// });
 
-const list = document.getElementById('list');
 
 list.addEventListener('click', function() {
   formContainer.style.display = 'none';
@@ -99,7 +93,6 @@ list.addEventListener('click', function() {
   heading.textContent = 'All Awesome Book Lists';
 })
 
-const addNew = document.getElementById('addNew');
 
 addNew.addEventListener('click', function() {
   formContainer.style.display = 'block';
@@ -108,9 +101,6 @@ addNew.addEventListener('click', function() {
   const heading = document.getElementById('mainTitle');
   heading.textContent = 'Add New Book';
 })
-
-const contact = document.getElementById('contact');
-const contactContainer = document.getElementById('contact-container');
 
 contact.addEventListener('click', function() {
   formContainer.style.display = 'none';
@@ -121,5 +111,4 @@ contact.addEventListener('click', function() {
   heading.style.margin = '4rem 0'
 })
 
-displayBook();
-// showLiveTime();
+// displayBook();

@@ -1,4 +1,4 @@
-import { BookCollection } from "./bookCollection";
+import { BookCollection } from "./bookCollection.js";
 
 export function displayBook() {
   window.bookList.innerHTML = '';
